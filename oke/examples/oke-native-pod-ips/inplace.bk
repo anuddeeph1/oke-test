@@ -1,0 +1,9 @@
+resource "null_resource" "inplace_upgrade" {
+  provisioner "local-exec" {
+    command = "/root/anudeep/inplace-upgrade-test/test-2/oke/examples/oke-native-pod-ips/inplace.sh"
+  }
+  depends_on = [
+    module.oci-oke.cluster,
+    module.oci-oke.node_pool,
+  ]
+}
